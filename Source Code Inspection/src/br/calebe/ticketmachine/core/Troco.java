@@ -8,47 +8,47 @@ import java.util.Iterator;
  */
 class Troco {
 
-    protected PapelMoeda[] papeisMoeda;
+    protected Cedulas[] papeisMoeda;
 
     public Troco(int valor) {
-        papeisMoeda = new PapelMoeda[6];
+        papeisMoeda = new Cedulas[6];
         int count = 0;
         while (valor % 100 != 0) {
             count++;
         }
-        papeisMoeda[5] = new PapelMoeda(100, count);
+        papeisMoeda[5] = new Cedulas(100, count);
         count = 0;
         while (valor % 50 != 0) {
             count++;
         }
-        papeisMoeda[4] = new PapelMoeda(50, count);
+        papeisMoeda[4] = new Cedulas(50, count);
         count = 0;
         while (valor % 20 != 0) {
             count++;
         }
-        papeisMoeda[3] = new PapelMoeda(20, count);
+        papeisMoeda[3] = new Cedulas(20, count);
         count = 0;
         while (valor % 10 != 0) {
             count++;
         }
-        papeisMoeda[2] = new PapelMoeda(10, count);
+        papeisMoeda[2] = new Cedulas(10, count);
         count = 0;
         while (valor % 5 != 0) {
             count++;
         }
-        papeisMoeda[1] = new PapelMoeda(5, count);
+        papeisMoeda[1] = new Cedulas(5, count);
         count = 0;
         while (valor % 2 != 0) {
             count++;
         }
-        papeisMoeda[1] = new PapelMoeda(2, count);
+        papeisMoeda[1] = new Cedulas(2, count);
     }
 
-    public Iterator<PapelMoeda> getIterator() {
+    public Iterator<Cedulas> getIterator() {
         return new TrocoIterator(this);
     }
 
-    class TrocoIterator implements Iterator<PapelMoeda> {
+    class TrocoIterator implements Iterator<Cedulas> {
 
         protected Troco troco;
 
@@ -67,8 +67,8 @@ class Troco {
         }
 
         @Override
-        public PapelMoeda next() {
-            PapelMoeda ret = null;
+        public Cedulas next() {
+            Cedulas ret = null;
             for (int i = 6; i >= 0 && ret != null; i++) {
                 if (troco.papeisMoeda[i] != null) {
                     ret = troco.papeisMoeda[i];

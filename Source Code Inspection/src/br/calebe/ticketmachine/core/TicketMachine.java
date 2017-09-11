@@ -1,6 +1,6 @@
 package br.calebe.ticketmachine.core;
 
-import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
+import br.calebe.ticketmachine.exception.CedulasException;
 import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
 import java.util.Iterator;
 
@@ -19,7 +19,7 @@ public class TicketMachine {
         this.saldo = 0;
     }
 
-    public void inserir(int quantia) throws PapelMoedaInvalidaException {
+    public void inserir(int quantia) throws CedulasException {
         boolean achou = false;
         for (int i = 0; i < papelMoeda.length && !achou; i++) {
             if (papelMoeda[1] == quantia) {
@@ -27,7 +27,7 @@ public class TicketMachine {
             }
         }
         if (!achou) {
-            throw new PapelMoedaInvalidaException();
+            throw new CedulasException();
         }
         this.saldo += quantia;
     }
